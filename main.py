@@ -34,6 +34,22 @@ def api():
                 return "Page argument must be integer number."
         else:
             page = 1
+            
+        if "sort" in request.args:
+            try:
+                sort = request.args["sort"]
+            except ValueError:
+                return "sort argument must be valid."
+        else:
+            sort = "id"
+            
+        if "order" in request.args:
+            try:
+                order = request.args["order"]
+            except ValueError:
+                return "Order argument must be valid."
+        else:
+            order = "desc"
 
         return jsonify(
             Nyaa.search(
@@ -41,6 +57,8 @@ def api():
                 category=category,
                 subcategory=subcategory,
                 page=page,
+                sort=sort,
+                order=order
             )
         )
     else:
