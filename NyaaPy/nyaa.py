@@ -9,12 +9,14 @@ class Nyaa:
         category = kwargs.get('category', 0)
         subcategory = kwargs.get('subcategory', 0)
         filters = kwargs.get('filters', 0)
+        sort = kwargs.get('sort',"id")
+        order = kwargs.get('order',"desc")
         page = kwargs.get('page', 0)
 
         if page > 0:
-            r = requests.get("{}/?f={}&c={}_{}&q={}&p={}&s=seeders&o=desc".format(Nyaa.URI, filters, category, subcategory, keyword, page))
+            r = requests.get("{}/?f={}&c={}_{}&q={}&p={}&s={}&o={}".format(Nyaa.URI, filters, category, subcategory, keyword, page,sort,order))
         else:
-            r = requests.get("{}/?f={}&c={}_{}&q={}&s=seeders&o=desc".format(Nyaa.URI, filters, category, subcategory, keyword))
+            r = requests.get("{}/?f={}&c={}_{}&q={}&s={}&o={}".format(Nyaa.URI, filters, category, subcategory, keyword,sort,order))
 
         soup = BeautifulSoup(r.text, 'html.parser')
         rows = soup.select('table tr')
