@@ -37,6 +37,8 @@ q | query string (required)
 category | [category number](#categories) (optional, default 0)
 subcategory | [subcategory number](#categories) (optional, default 0)
 page | page number (optional, default 1, range: 0-1000)
+sort | sort results(optional, deafault "id")
+order | order results(optional, default "desc",options: "desc" or "asc" )
 
 ### Categories
 Number | Category
@@ -69,3 +71,13 @@ Number (Cat.Sub) | Subcategory
 5.2 | Photos
 6.1 | Applications
 6.2 | Games
+
+### Sort
+Field | Sort
+:--- | :---
+comments | Sort by Comments
+size | Sort by Size
+id | Sort by Date
+seeders | Sort by Seeders
+leechers | Sort by Leechers
+downloads | Sort by Downloads 
