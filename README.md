@@ -22,8 +22,6 @@ $ gunicorn main:app --log-file -
 
 ## Usage
 
-[Demo public instance.](https://nyaasi-api.herokuapp.com/)
-
 + All queries must be a GET requests.
 
 ### Example request with cURL
